@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<Apps>
+
+	<Config>
+		<DefaultBrowser name="browser">FF (Default Profile)</DefaultBrowser>
+		<SendEmail name="sendMail">false</SendEmail>
+		<Intl name="intl">us</Intl>
+	</Config>
+	
+	<LogIn>
+		<UserName name="userName">username</UserName>
+		<Password name="password">passwd</Password>
+		<SignIn name="signIn">.save</SignIn>
+	</LogIn>
+	
+	<YouTube>
+		<Featured name="featured">//*[@id='lblFeatured']</Featured>
+		<MostViewed name="mostViewed">//*[@id='lblMostViewed']</MostViewed>
+		<TopRated name="topRated">//*[@id='lblTopRated']</TopRated>
+		<Discussed name="discussed">tabDiscussed</Discussed>
+		<SearchBox name="searchBox">tabSearch</SearchBox>
+		<InputSearch name="search">//*[@id='searchBox']</InputSearch>
+		<SearchButton name="button">//*[@id='searchButton']</SearchButton>
+		<CurrentTab name="currentTab">//ul[@id='tab_ul']/li[@class='current']</CurrentTab>
+		<RightStatus name="rightStatus">//div[@class="rightContainer"]</RightStatus>
+		<LeftStatus name="leftStatus">//div[@class='leftContainer']</LeftStatus>
+		<VideoContainer name="videoContainer">//*[@id='videosContainer']</VideoContainer>
+		<Video name="video">//div[@id='videosContainer']/div[</Video>
+		<VideoStartPath  name="videoStartPath">//div[@id='videosContainer']/div[</VideoStartPath>
+		<VideoDuration name="videoDuration">][@class='videoContainer']//div[@class='videoDuration']</VideoDuration>
+		<VideoDetails name="videoDetails">][@class='videoContainer']/div[@class='videoDetails']</VideoDetails>
+		<VideoTitle name="videoTitle">][@class='videoContainer']/div[@class='videoTitle']</VideoTitle>
+		<PreviousLinkDisabled name="previousDisabled">//a[@class='jp-previous jp-disabled']</PreviousLinkDisabled>
+		<PreviousLink name="previous">//a[@class='jp-previous']</PreviousLink>
+		<NextLinkDisabled name="nextDisabled">//a[@class='jp-next jp-disabled']</NextLinkDisabled>
+		<NextLink name="next">//a[@class='jp-next']</NextLink>
+		<Pagination name="pagination">//div[@class='paginationContainer']/a[</Pagination>
+		<CurrentPage name='currentPage'>//div[@class='paginationContainer']/a[@class='jp-current']</CurrentPage>
+		<!--  <Tab name="tab">//ul[@id='tab_ul']/li</Tab> -->
+		<Tab name="tab">//ul[@id='tab_ul']/li[</Tab>
+		<VideoFrame name="videoFrame">//*[@id='videoFrame']</VideoFrame>
+		<Carousel name="carousel">//*[@id='relatedVideosContainer']</Carousel>
+		<RelatedVideo name="relatedVideo">//*[@id='relatedVideosContainer']</RelatedVideo>
+		<CarouselPrevious name="carouselPrevious">//div[@class='relatedVideosContainerPrev']</CarouselPrevious>
+		<CarouselNext name="carouselNext">//div[@class='relatedVideosContainerNext']</CarouselNext>
+		<CarouselPreviousDisabled name="prevDisabled">//div[@class='relatedVideosContainerPrev jp-disabled']</CarouselPreviousDisabled>
+		<CarouselNextDisabled name="nextDisabled">//div[@class='relatedVideosContainerNext jp-disabled']</CarouselNextDisabled>
+		<RelatedVideoStartPath name='relatedVideoStartPath'>//div[@id='relatedVideosContainer']/div[</RelatedVideoStartPath>
+		<Back name="back">//div[@class="rightContainer"]/a</Back>
+	</YouTube>
+	
+	
+	<Facebook>
+    
+        <FacebookSignIn name="signIn">//*[contains(@class,"ycw-fb-login-btn")]/a</FacebookSignIn>
+        <facebookProfile name="profile">//*[contains(@class,"ycw-profile-btn ycw-profile-btn-off")]</facebookProfile>
+        <facebookPhoto name="photo">//*[contains(@class,"photo")]</facebookPhoto>
+        <facebookNotification name="notification">//*[contains(@class,"ycw-notify-btn ycw-notify-btn-off")]</facebookNotification>
+        <facebookShare name="share">//*[contains(@class,"ycw-share-textarea ycw-share-dim ycw-watermark")]</facebookShare>
+        <facebookLike name="like">//*[contains(@class,"ycw-emo-link")]</facebookLike>
+        <facebookComment name="comment">//*[contains(@class,"ycw-cmnt-link")]</facebookComment>
+        <facebookcommentShare name="passComment">//textarea[starts-with(@id,"ycw-ins-cmnt-")]</facebookcommentShare>
+        <facebookcommentVerification name="commentCheck">//*contains(@class,"ycw-cmnt-message")</facebookcommentVerification>
+        <Post name="post">//ul[@class='ycw-event-list ycw-fw']/li[</Post>
+        <Like name="like">/div[@class='ycw-event-inner']/div[@class='ycw-actions']/a[@class='ycw-emo-link']</Like>
+        <Comment name="comment">/div[@class='ycw-event-inner']/div[@class='ycw-actions']/a[@class='ycw-cmnt-link']</Comment>
+        <commentShare name="share">/div[@class='ycw-event-inner']/div[@class='ycw-cmnts ']/a[@class='ycw-ins-cmnt-textarea ycw-ins-cmnt-dim ycw-watermark']</commentShare>
+        <viewMore name="more">//*[contains(@class,"ycw-cta ycw-view-more-evt")]</viewMore>
+        <viewMore1 name="more">/div[@class='ycw-more clearfix']/a[@class='ycw-cta ycw-view-more-evt']</viewMore1>
+        <viewMoreErrorMessage name="errormsg">//textarea[starts-with(@id,"ycw-error")]</viewMoreErrorMessage>
+        <facebookLogout name="logout" >//*[contains(@class,"ycw-options ycw-logout")]</facebookLogout>
+        <loginMessage name="message">//*[contains(@class,"login-message")]</loginMessage>
+        <commentMessage name="comment">//*[contains(@class,"ycw-message")]</commentMessage>
+        <unlikeLink name="unlike">//*[contains(@class,"ycw-emo-link")]</unlikeLink>
+        <commentVerification name="Comment">//div[@class="ycw-cmnts-lst"]/div[@class="ycw-cmnts-row ycw-cmnts-row2"][last()]/div</commentVerification>
+        <notificationAvailability name="notification">//div[@class='ycw-story']</notificationAvailability>
+    </Facebook>
+    
+    <Gallery>
+    <generalTab name="general">//ul[@id='gallery_tab_holder']/li[@id='general']/div[@class='title']</generalTab>
+    <galleryTab name="gallery">//ul[@id='gallery_tab_holder']/li[@id='gallery']/div[@class='title']</galleryTab>
+    <helpTab name="help">//ul[@id='gallery_tab_holder']/li[@id='help']/div[@class='title']</helpTab>
+    <layoutTitle name='title'>//span[@class='layoutTitle']</layoutTitle> 
+    <layoutSubTitle name='subtitle'>//span[@class='layoutSubTitle']</layoutSubTitle>   
+    <crossButton name="cross">//div[@id="layoutCloseBtn"]</crossButton>
+    <removeButton name="remove">//div[@class='removeLayoutBtn']</removeButton>
+    <mailchangelayout name="default">//div[@id="yma"]</mailchangelayout>
+    <weatherchangelayout name="default">//div[@id="wea"]</weatherchangelayout>
+    <facebookchangelayout name="default">//div[@id="fac"]</facebookchangelayout>
+    <searchTextEditBox name="searchbox">//input[@id='srchtxt']</searchTextEditBox>
+    <weatherlayout name="weather">//li[@id='wea']/div[@class='layoutBox']</weatherlayout>
+    <mailLayout name="mail">//li[@id='yma']/div[@class='layoutBox']</mailLayout>
+    <bookmarkLayout name='bookmark'>//li[@id='boo']/div[@class='layoutBox']</bookmarkLayout>>
+    <facebookLayout name='facebook'>//li[@id='fac']/div[@class='layoutBox']</facebookLayout>>
+    <youtubeLayout name='youtube'>//li[@id='you']/div[@class='layoutBox']</youtubeLayout>
+    <visicomLayout name='visicom'>//li[@id='visi_coupon']/div[@class='layoutBox']</visicomLayout>
+    <ebayLayout name='ebay'>//li[@id='ebay']/div[@class='layoutBox']</ebayLayout>>
+    <mailButtonPresent name="buttonPresent">//li[@id='yma']/div[@class='btnGrpAddSection']/button[@class='onBtnGrpAddBtn onAdd'] </mailButtonPresent>
+    <featureTabnotPresent name="feature">//div[@class='featured-app-container hidden']</featureTabnotPresent>
+    <featureTabPresent name="feature">//div[@class='featured-app-container']</featureTabPresent>
+    <weatherImage name="weather">//div[@id='featured-app-selected_2']/img[@src='http://l.yimg.com/nt/i/tb/yts/fa_wea_small.png']</weatherImage>
+    <!--mailImage name="mail">//div[@id='featured-app-selected_0']/img[@src='http://l.yimg.com/nt/i/tb/yts/fa_mail_small.png']</mailImage-->
+    <mailImage name="mail">//ul[@class='featured-app-panel-lst']//li[1]</mailImage>
+    <bookmarkImage name="bookmark">//div[@id='featured-app-selected_1']/img[@src='http://l.yimg.com/nt/i/tb/yts/fa_boo_small.png']</bookmarkImage>
+    <facebookImage name="facebook">//div[@id='featured-app-selected_3']/img[@src='http://l.yimg.com/nt/i/tb/yts/fa_fac_small.png']</facebookImage>
+    <youtubeImage name="youtube">//div[@id='featured-app-selected_4']/img[@src='http://l.yimg.com/nt/i/tb/yts/fa_you_small.png']</youtubeImage>
+    <mailAdd name="mail">//div[@id='add_yma']/p/button[@id='yma']</mailAdd>
+    <mostPopular name='popular'>//div[@class='shrtcutBtnTitle']</mostPopular>
+    <seeAllLink name='seeAll'>//div[@class='shrtcutBtnTitle']/span[@id='seeAllBtns']</seeAllLink>
+    <allButtons name='button'>//div[@id='container']/div[@id='gallery_panel']/div[@class='gallery_popular_shortcuts']</allButtons>
+    <generalPage name='general'>//div[@id='general_panel']</generalPage>    
+    <addAppButtonCheckbox name='checkbox'>//input[@id='add_apps']</addAppButtonCheckbox>
+    <textLableCheckbox name='checkbox'>//input[@id='text_labels']</textLableCheckbox>
+    <featureTipCheckbox name='checkbox'>//input[@id='feature_tips']</featureTipCheckbox>
+    <browserUtilityCheckbox name='checkbox'>//input[@id='prvbrowse']</browserUtilityCheckbox>
+    <searchAssistCheckbox name='checkbox'>//input[@id='search_assist']</searchAssistCheckbox>
+    <newTabCheckbox name='checkbox'>//input[@id='results_newtab']</newTabCheckbox>
+    <navAssistCheckbox name='checkbox'>//input[@id='hide404']</navAssistCheckbox>
+    <privacyCheckbox name='checkbox'>//input[@id='privacy']</privacyCheckbox>
+    <helpPageVerification name='helppage'>//h1[@class='gs']</helpPageVerification>
+    
+    </Gallery>
+	<Bookmark>
+	    <Welcome name="welcomeTitle">//*[contains(@class,"welcome-title")]</Welcome>
+	    <Welcome name="welcomeText">//*[contains(@class,"welcome-text")]</Welcome>
+	    <BMImage name="bmimage">//*[contains(@src,"http://l.yimg.com/nt/boo/v1/images/bm_welcome.png")]</BMImage>
+	    <Label name="bmaddText">//*[contains(@class,"bmaddlabel")]</Label>
+	    <Button name="signin">//*[contains(@class,"boo-signin")]</Button>
+	    <Button name="signup">//*[contains(@class,"boo-signup")]</Button>
+	    <Button name="bmadd">//*[contains(@class,"add-btn home-btn") and contains(@title,"Add")]</Button>
+	    <Quicklist name="quicklist">//*[contains(@class,"quicklist")]</Quicklist>
+	    <Textfield name="bookmarkname">//*[contains(@id,"bmname")]</Textfield>
+		<Textfield name="bookmarkurl">//*[contains(@id,"bmurl")]</Textfield>
+		<Textfield name="bookmarktags">//*[contains(@id,"tags")]</Textfield>
+		<AddButton name="add">add-btn</AddButton>
+		<AddQL name="addQL">//*[contains(@id,"quick_list") and contains(@class,"chbx")]</AddQL>
+		<CloseButton name="close">//*[contains(@class,"yso-dialog-close yso-btn-wrap")]</CloseButton>
+		<AddButton name="addFolder">//*[contains(@title,"Add Folder")]</AddButton>
+		<AddConfirmation name="confirmation">//*[contains(@id,"yso-dialog-msg")]</AddConfirmation>
+		<Input name="folderName">//*[contains(@id,"newfolder") and contains(@type,"text")]</Input>
+		<Label name="bkurl">//*[contains(@for,"bmurl")]</Label>
+		<Label name="bkname">//*[contains(@for,"bmname")]</Label>
+		<Label name="mydropdown">//*[contains(@for,"mydropdown")]</Label>
+		<Label name="tags">//*[contains(@for,"tags")]</Label>
+		<Options name="options">yso-options</Options>
+		<Options name="preferences">yso-options-link0</Options>
+		<Options name="tools">yso-options-link1</Options>
+		<Input name="recentlysaved">//*[contains(@id,"recentlysaved") and contains(@name,"OrderBy")]</Input>
+		<Input name="quicklist">//*[contains(@id,"frequentlyaccessed") and contains(@name,"OrderBy")]</Input>
+		<Input name="folderview">//*[contains(@id,"recentlysaved") and contains(@name,"DisplayFoldersAs")]</Input>
+		<Input name="tagview">//*[contains(@id,"frequentlyaccessed") and contains(@name,"DisplayFoldersAs")]</Input>
+		<Input name="submitButton">//*[contains(@class,"submitbttn") and contains(@value,"Save Changes")]</Input>
+		<ListFolder name="folderConfirmation">//*[@class="listfolders"]</ListFolder>
+        <FolderList name="folderList">//*[contains(@class,"listfolders")]</FolderList>
+        <Quicklist name="QLCheck">//*[contains(@id,"addquicklist")]//*[contains(@id,"quick_list") and contains(@class,"chbx")]</Quicklist> 
+        <List name="allBM">//*[contains(@id,"all")]</List>
+        <List name="quicklist">//div[@class="quicklist"]/li</List>
+        <List name="tags">//*[contains(@class,"listfolders")]//*[contains(@class,"tag")]</List>
+        <Preference name="RecentlySavedChange">//*[contains(@id,"Recently Saved")]/a</Preference>
+        <Preference name="QLChange">//*[contains(@id,"Quick List")]/a</Preference>
+        <Folders name="Unsorted">//*[contains(@class,"listfolders")]/li[contains(@id,"0")]//div[@id="arrow"]</Folders>
+        <Folders name="UserCreatedFolder">//*[contains(@class,"listfolders")]//li[2]//div[@id="arrow"]</Folders>
+        <Folders name="ListBM">//*[contains(@class,"listbookmarks")]/li</Folders>
+        <Folder name="FolderDelete">//*[@id="deleteForm"]//*[@id="deleteButton"]</Folder>
+        <Folder name="UserFolder">//div[@id='foldertree']/ul[2]//a</Folder>
+        <Folder name="Edit">//div[@id='foldertree']/ul[2]//a[2]</Folder>
+        <Folder name="delSuccess">//*[@class="success"]</Folder>
+        <Folder name="newFolder">//*[@id="newfolder"]</Folder>
+        <Bookmark name="BMName">//*[contains(@class,"bookmark-view")]</Bookmark>
+        <Delete name="BMName">//form[@id='form_edit']//div[@class="boo-delete"]/a</Delete>
+        <Edit name="BMEdit">//*[contains(@class,"boo-edit") and contains(@title,"Edit Bookmark")]</Edit>
+        <AllBM name="all">//*[contains(@class,"folder_all")]</AllBM>
+        <Home name="home">//*[@class="navigate"]/a</Home>
+        <UnsortedBM name="unsorted">//*[contains(@id,"folder")]</UnsortedBM>
+        <Dialog name="yso">//*[@id="yso-dialog"]</Dialog>
+        <Dialog name="ysoMessage">//*[@id="yso-dialog-msg"]//div[2]</Dialog>
+        <Title name="header">//*[@id="yso-title"]</Title>
+        <Title name="footer">//*[@class="yso-footer-link"]</Title>
+        <Quicklist name="quicktext">//*[@class="quicktext"]</Quicklist>
+        <SignIn name="signIn">//*[@class="boo-signin"]</SignIn>
+        <UserName name="username">//*[@id='username']</UserName>
+        <Password name="passwd">//*[@id="passwd"]</Password>
+        
+        
+        		
+	</Bookmark>
+
+ <Weather>
+
+   <City name="title">//*[contains(@id,"yso-title")]</City>
+   <Navigation name="leftNav">//*[contains(@id,"loc-scroll-left")]</Navigation>
+   <Navigation name="rightNav">//*[contains(@id,"loc-scroll-right")]</Navigation>
+   <Image name="currentWeather">//*[contains(@class,"current-weather")]</Image>
+   <City name="currentCity">//*[contains(@class,"current-weather-city")]</City>
+   <City name="addCityList">//*[contains(@class,"yso-title")]</City>
+   <City name="cityList">//*[contains(@class,"city-list-flyout")]/li</City>
+   <Footer name="moreLink">//*[contains(@class,"current-weather-more")]/span</Footer>
+   <Scale name="degree">//*[contains(@class,"unit")]</Scale>
+   <Condition name="condition">//*[contains(@class,"time-loc")]</Condition>
+   <Textfield name="search">//*[contains(@id,"weather_search_input")]</Textfield>
+   <DropDown name="cityDropDown">//*[contains(@class,"city-drop-down")]</DropDown>
+   <Degree name="degree">//*[contains(@class,"current-weather-temp")]//span[2]</Degree>
+   <Degree name="farenheitChange">//*[contains(@class,"current-weather-unit temp-f")]//span/u</Degree>
+   <Degree name="celsiusChange">//*[contains(@class,"current-weather-unit temp-c")]//span/u</Degree>
+   <Degree name="farenheit">//*[contains(@class,"unit") and contains(text(),"F")]</Degree>
+   <Degree name="celsius">//*[contains(@class,"unit") and contains(text(),"C")]</Degree>
+   <Forecast name="fivedayForecast">//*[contains(@class,"yso-weather-forecast-tabs")]//div[contains(@id,"forecast-tab")]/ul</Forecast>
+   <Forecast name="image">//*[contains(@class,'yso-weather-forecast-tabs')]//div[contains(@id,'forecast-tab')]//ul/li</Forecast>
+   <Forecast name="days">//*[contains(@class,'yso-weather-forecast-tabs')]//div[contains(@id,'forecast-tab')]//ul/li</Forecast>
+   <Textfield name="search">//input[@id="weather_search_input" and @value="Enter city or zip code:"]</Textfield>
+   <Select name="manageLoc">//*[@id="LocdropLocationPicker__weather_search_input_lwFooter"]//li[2]</Select>
+   <Button name="Go">//input[@id="weather_search_go"]</Button>
+   <Search name="query">//*[@class="sqlocation-record line-item sqlocation-record-first"]/a</Search>
+   <City name="currentCity">//*[@class="current-weather-city"]/span</City>
+   <City name="addCity">//*[@class="add-to-list"]</City>
+   <City name="removeCity">//*[@class="remove-city"]/a</City>
+   <City name="setDefault">//*[@class="set-default"]/a</City>
+   <Tooltip name="forecast">//*[@class="forecast-tooltip show"]/p</Tooltip>
+   <Scroll name="left">//div[@id="loc-scroll-left"]</Scroll>
+   <Scroll name="right">//div[@id="loc-scroll-right"]</Scroll>
+   <Message name="warning">//*[@id="LocdropLocationPicker__weather_search_input_lwBody"]</Message>
+   
+   </Weather>
+
+<!-- Weather>
+    <City name="title">//*[contains(@id,"yso-title")]</City>
+    <Navigation name="leftNav">//*[contains(@id,"loc-scroll-left")]</Navigation>
+    <Navigation name="rightNav">//*[contains(@id,"loc-scroll-right")]</Navigation>
+    <Image name="currentWeather">//*[contains(@class,"current-weather")]</Image>
+    <City name="currentCity">//*[contains(@class,"current-weather-city")]</City>
+    <City name="addCityList">//*[contains(@class,"yso-title")]</City>
+    <City name="cityList">//*[contains(@class,"city-list-flyout")]/li</City>
+    <Footer name="moreLink">//*[contains(@class,"current-weather-more")]/span</Footer>
+    <Scale name="degree">//*[contains(@class,"unit")]</Scale>
+    <Condition name="condition">//*[contains(@class,"time-loc")]</Condition>
+    <Textfield name="search">//*[contains(@id,"weather_search_input")]</Textfield>
+    <DropDown name="cityDropDown">//*[contains(@class,"city-drop-down")]</DropDown>
+    <Degree name="degree">//*[contains(@class,"current-weather-temp")]//span[2]</Degree>
+    <Degree name="farenheitChange">//*[contains(@class,"current-weather-unit temp-f")]//span/u</Degree>
+    <Degree name="celsiusChange">//*[contains(@class,"current-weather-unit temp-c")]//span/u</Degree>
+    <Degree name="farenheit">//*[contains(@class,"unit") and contains(text(),"F")]</Degree>
+    <Degree name="celsius">//*[contains(@class,"unit") and contains(text(),"C")]</Degree>
+    <Forecast name="fivedayForecast">//*[contains(@class,"yso-weather-forecast-tabs")]//div[contains(@id,"forecast-tab")]/ul</Forecast>
+    <Forecast name="image">//*[contains(@class,'yso-weather-forecast-tabs')]//div[contains(@id,'forecast-tab')]//ul/li</Forecast>
+    <Forecast name="days">//*[contains(@class,'yso-weather-forecast-tabs')]//div[contains(@id,'forecast-tab')]//ul/li</Forecast>
+    <Textfield name="search">//input[@id="weather_search_input" and @value="Enter city or zip code:"]</Textfield>
+    <Select name="manageLoc">//*[@id="LocdropLocationPicker__weather_search_input_lwFooter"]//li[2]</Select>
+    <Button name="Go">//input[@id="weather_search_go"]</Button>
+    <Search name="query">//*[@class="sqlocation-record line-item sqlocation-record-first"]/a</Search>
+    <City name="currentCity">//*[@class="current-weather-city"]/span</City>
+    <City name="addCity">//*[@class="add-to-list"]</City>
+    <City name="removeCity">//*[@class="remove-city"]/a</City>
+    <City name="setDefault">//*[@class="set-default"]/a</City>
+    <Tooltip name="forecast">//*[@class="forecast-tooltip show"]/p</Tooltip>
+    <Scroll name="left">//div[@id="loc-scroll-left"]</Scroll>
+    <Scroll name="right">//div[@id="loc-scroll-right"]</Scroll>
+    <Message name="warning">//*[@id="LocdropLocationPicker__weather_search_input_lwBody"]</Message>
+    
+    </Weather-->
+    
+    
+    
+    
+<Mail>
+		<U_Name name="loginID">tb_tester04@ymail.com</U_Name>
+		<U_pwd name="Upwd">abcd@1234</U_pwd>
+	  <SignInbutton name="SignInbt">//*[@id='ysa-welcome']/button</SignInbutton>>
+	  <UserName name="username">//*[@id='username']</UserName>
+	  <Password name="passwd">//*[@id='passwd']</Password>
+	  <Compose name="compose">//a[@id='ymail-compose-mail']</Compose>
+	  <ComposeTo name="to">//input[@id='ymail-compose-to']</ComposeTo>
+	  <ComposeSub name="subject">//input[@id='ymail-compose-sj']</ComposeSub>
+	  <ComposeMsg name="message">//textarea[@id='compose-text']</ComposeMsg>
+	  <ComposeSend name="sendbt">//a[@id='ymail-send-mail']</ComposeSend>
+	  <ComposeSentConfrmation name="sentConftxt">//*[@id='yso-dialog-msg']/div[2]</ComposeSentConfrmation>
+	  <ComposeConfClose name="sentDialogclose">//button[@id='yso-dialog-close']</ComposeConfClose>
+	  <ComposeBack name = "ymail_backButton">//a[@id='ymail-back-button']</ComposeBack>>
+	  
+	  <YahooTab name="yTab">//div[@id='ymail']</YahooTab>
+	  <YahooTab name="mailSection">//ul[@id='ymail_list']/li</YahooTab>
+	  
+	  <YahooTab name="del_mail_li_Start">//li[@id='li_</YahooTab>
+	  <YahooTab name="del_mail_li_end">']//div[@class='btn-delete']/a[@class='delete']</YahooTab>
+	  
+	  <RefreshIcon name="refresh">//*[@id='ymail-refresh-mail']/span/span</RefreshIcon>
+	  
+	  <MailOptions name="options">//a[@id='yso-options']</MailOptions>
+	  <MailOptions name="mailaccounts">//*[@id='yso-options-link1']</MailOptions>
+	  <MailOptions name="gmailIcon">//a[@class='gmail']</MailOptions>
+	  <MailOptions name="signature">//*[@id='sent-from-pref']</MailOptions>
+	  <MailOptions name="backButton">//a[@id='btn_closebar']/span</MailOptions>
+	  <YmailTab name="ymailTab">//ul[@id='ymail_list']/li</YmailTab>
+	  <Ymailpreview name="ymailpreview">//p[@id='message']</Ymailpreview>
+	  <YmailVerifyMail name="mailverify_xpath_start">//ul[@id='ymail_list']/li[@id='li_</YmailVerifyMail>
+	  <YmailVerifyMail name="mailverify_xpath_end">']//div[@class='subject']</YmailVerifyMail>
+	  <YmailVerifyMail name="msg_xpath">']//div[@id='message-preview']//div[@class='bd']</YmailVerifyMail>
+	  
+	  
+	  
+	</Mail>
+	
+	
+	
+	
+	<Settings>
+	
+	<signInLink name="signIn">//div[@class="signin"]/a[contains(@id,"signIn")]</signInLink>
+	<signInVerification name="YahoosignIn">//div[@id="inputs"]/input[contains(@id,"username")]</signInVerification>
+	<editToolbarVerification name="editToolbar">//ul[@class="settings-menu"]/li[contains(@id,"mi_1")]</editToolbarVerification>
+	<galset name="buttonGallery">//ul[@id='gallery_tab_holder']/li[@id='general']/div[@class='title']</galset>
+	<editSettings name="settings">//ul[@class='inner-menu']/li[contains(@id,"mi_4")]</editSettings>
+	<aboutToolbar name="about">//ul[@class='inner-menu']/li[contains(@id,"mi_6")]</aboutToolbar>
+	<sendFeedback name="feedback">//ul[@class='inner-menu']/li[contains(@id,"mi_7")]</sendFeedback>
+	<feedBackPage name="yahoofeedback">//div[@class='uvMastheadWrapper']/a[@class='uvMastheadHomeLink']/img[@class='uvMastheadLogo']</feedBackPage>
+	<privacyPolicy name="policy">//ul[@class='inner-menu']/li[contains(@id,"mi_8")]</privacyPolicy>
+	<helpLink name="helpsettings">//ul[@class='inner-menu']/li[contains(@id,"mi_9")]</helpLink>
+	<plusaddpage name="plusgallery">//a[@id='ysa-gallery']/div[@id='gallery-item']</plusaddpage>
+	<plusaddbutton name="addbutton">//li[@id='normal-item']/div[@class='plus-item-div plus-item']</plusaddbutton>
+		
+	</Settings>
+	
+	
+	<Rss>
+	
+	<galleryRemove name="gremove">//div[@class='btnGrpAddSection']/button[@class='onBtnGrpsRemovneBtn removeButton']</galleryRemove>
+	<galleryAdd name="gadd">//*[@id='rss_sd_cnn']/div[4]/button[1]</galleryAdd>
+	<rssTitle name="rtitle">//*[@id='yso-title']</rssTitle>
+	<rssItemList name="itemlist">//div[@id='ysa-rss']/ul[@class='rss-item-list']</rssItemList>
+	<rssHeadline name="headline">//li[@class='alert rss-item']/a[@id='headline_0']</rssHeadline>
+	<rsstime name="time">//li[@class='alert rss-item']/div[@class='time']</rsstime>
+	<rssdesc name="desc">//li[@class='alert rss-item']/div[@class='desc']</rssdesc>
+	<rssnavigation name="navigation">//div[@id='yso-right-tools']/a[@id='yso-navigate']/span[@class='style-helper']/span[@class='text-holder navigate-text-holder']/span[@class='icon navigate-icon']</rssnavigation>
+	</Rss>
+</Apps>
+	
+
+
+
+

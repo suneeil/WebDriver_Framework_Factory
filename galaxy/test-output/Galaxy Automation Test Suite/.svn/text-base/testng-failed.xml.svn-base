@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Galaxy Automation Test Suite]">
+  <test name="SmokeRun(failed)" preserve-order="false">
+    <groups>
+      <run>
+        <include name="Smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="yahoo.toolbar.webDriver.Youtube.Test1">
+        <methods>
+          <include name="set"/>
+          <include name="test2"/>
+        </methods>
+      </class>
+      <class name="yahoo.toolbar.webDriver.Youtube.Test2">
+        <methods>
+          <include name="testing2"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

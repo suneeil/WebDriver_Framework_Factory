@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Galaxy Automation Test Suite" duration-ms="99942" started-at="2014-02-27T09:40:08Z" finished-at="2014-02-27T09:41:48Z">
+    <groups>
+      <group name="Smoke1234">
+        <method signature="Bookmarks.removeBookmarks()[pri:0, instance:yahoo.toolbar.webDriver.apps.Bookmarks.Bookmarks@7c83d8be]" name="removeBookmarks" class="yahoo.toolbar.webDriver.apps.Bookmarks.Bookmarks"/>
+      </group> <!-- Smoke1234 -->
+    </groups>
+    <test name="Smoke1234" duration-ms="99942" started-at="2014-02-27T09:40:08Z" finished-at="2014-02-27T09:41:48Z">
+      <class name="yahoo.toolbar.webDriver.apps.Bookmarks.Bookmarks">
+        <test-method status="PASS" signature="removeBookmarks()[pri:0, instance:yahoo.toolbar.webDriver.apps.Bookmarks.Bookmarks@7c83d8be]" name="removeBookmarks" duration-ms="99937" started-at="2014-02-27T15:10:08Z" finished-at="2014-02-27T15:11:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- removeBookmarks -->
+      </class> <!-- yahoo.toolbar.webDriver.apps.Bookmarks.Bookmarks -->
+      <class name="yahoo.toolbar.webDriver.util.Config">
+        <test-method status="PASS" signature="selectBrowser()[pri:0, instance:yahoo.toolbar.webDriver.util.Config[frame0,0,22,0x0,invalid,hidden,layout=java.awt.BorderLayout,title=,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]]" name="selectBrowser" is-config="true" duration-ms="24117" started-at="2014-02-27T15:09:44Z" finished-at="2014-02-27T15:10:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectBrowser -->
+        <test-method status="PASS" signature="killBrowser()[pri:0, instance:yahoo.toolbar.webDriver.util.Config[frame0,0,22,0x0,invalid,hidden,layout=java.awt.BorderLayout,title=,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]]" name="killBrowser" is-config="true" duration-ms="96" started-at="2014-02-27T15:11:48Z" finished-at="2014-02-27T15:11:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- killBrowser -->
+      </class> <!-- yahoo.toolbar.webDriver.util.Config -->
+    </test> <!-- Smoke1234 -->
+  </suite> <!-- Galaxy Automation Test Suite -->
+</testng-results>

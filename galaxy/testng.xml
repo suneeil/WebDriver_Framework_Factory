@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Galaxy Automation Test Suite" verbose="1" >
+  
+	<test name="Smoke" >
+  	<groups>
+  		<run>
+  			<!--include name="Smoke"></include-->
+  			<include name="Smoke1234"></include>
+  		</run>
+  	</groups>
+  	 <packages>
+       <package name="yahoo.toolbar.webDriver.apps.Bookmarks.*"/>
+       <!-- package name="yahoo.toolbar.webDriver.buttonGallery.Gallery.*"/-->
+       <!--package name="yahoo.toolbar.webDriver.apps.Weather.*"/-->
+       <package name="yahoo.toolbar.webDriver.util.*"/>
+    </packages>
+  </test>
+  
+
+</suite>
+

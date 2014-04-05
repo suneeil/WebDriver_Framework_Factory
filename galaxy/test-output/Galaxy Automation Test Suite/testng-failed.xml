@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Galaxy Automation Test Suite]">
+  <test name="Smoke(failed)">
+    <groups>
+      <run>
+        <include name="Smoke1234"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="yahoo.toolbar.webDriver.apps.Weather.Weather">
+        <methods>
+          <include name="addCity"/>
+        </methods>
+      </class> <!-- yahoo.toolbar.webDriver.apps.Weather.Weather -->
+      <class name="yahoo.toolbar.webDriver.util.Config">
+        <methods>
+          <include name="selectBrowser"/>
+          <include name="killBrowser"/>
+        </methods>
+      </class> <!-- yahoo.toolbar.webDriver.util.Config -->
+    </classes>
+  </test> <!-- Smoke(failed) -->
+</suite> <!-- Failed suite [Galaxy Automation Test Suite] -->

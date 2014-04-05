@@ -1,0 +1,464 @@
+package yahoo.toolbar.webDriver.apps.Weather;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import yahoo.toolbar.webDriver.util.CommonLibrary;
+import static yahoo.toolbar.webDriver.util.Config.driver;
+
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class Weather extends CommonLibrary
+{
+	
+	/**
+	 * 
+	 * Weather constructor used by factory class to create intl specific Test classes
+	 *
+	**/
+	public Weather(String intl)
+	{
+		//initialize intl 
+		this.intl=intl;
+		//fetch intl specific strings from excel
+		data=readExcel(intl,"Weather",3);
+		//create URL
+		URL="http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1"; 
+		//initialize expected header status message  
+		
+		
+	}
+	
+	
+	
+	/**
+	 *
+	 *Variable declaration section 
+	 * 
+	**/
+	//intl to test
+	String intl;
+	//map containing intl specific strings
+	private Map <String,String>data;
+	//URL to test
+	private String URL; 
+	
+	/**
+	 * 
+	 * Common methods for weather
+	 * 
+	 * 
+	**/
+	public void weatherCommon()
+	{
+		  // Log out if the user is already logged in
+		   logout();
+		  //Login with a user who has weather 
+		   login("hafeez_tb2","testing",true);
+		  driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		  //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+	}
+    
+     
+
+	/**
+	 * 
+	 * Test to verify weather UI
+	 * 
+	 * 
+	**/
+	
+	@Test(groups={"Smoke"})
+	public void weatherUI()
+	{    
+		  sleep(5000);
+		  driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		  //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+		  //Verify the search text field
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Textfield","search"))),"Search text field not found");
+		  //Verify the weather image, scale, condition
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Image","currentWeather"))),"");
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Scale","degree"))),"Degree not found");
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","City","currentCity"))),"Current city not found");
+		  //Verify the five days forecast
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Forecast","fivedayForecast"))),"Five days forecast not present");
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Forecast","image"))),"Forecast image not present");
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Forecast","days"))),"Five days not present");
+	}
+	
+	
+	/**
+	 * 
+	 * Test to verify weather link
+	 * 
+	 * 
+	**/
+	
+	@Test(groups={"Functional","Regression"})
+	public void weatherMoreLinkVerificaiton() throws InterruptedException
+	{ 
+		
+		 sleep(5000);
+		 driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		 //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+		  String destinationText=driver.findElementByXPath(getPath("Weather","City","currentCity")).getText().trim();
+		  sleep(5000);
+		  //Click on the More link
+		  driver.findElementByXPath(getPath("Weather","Footer","moreLink")).click();
+		  sleep(5000);
+		 // Verify the user is taken to weather.yahoo.com
+		  String url= driver.getCurrentUrl();
+		  String city=driver.findElementByXPath(getPath("Weather","City","currentCity")).getText().trim();
+		  //Verify the destination url and the city
+		  Assert.assertTrue(url.contains(data.get("weatherURL")),"Weather url mismatch");
+		  Assert.assertTrue(destinationText.equals(city),"Weather city mismatch");
+		  
+		 
+	   
+		
+	}
+	
+	/**
+	 * 
+	 * Test to verify Welcome Screen
+	 * 
+	 * 
+	**/
+	
+//	@Test(groups={"Functional","Regression"})
+	public void weatherCityVerification() throws InterruptedException
+	{
+		  sleep(5000);
+		  driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		  //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+		  String str=driver.findElementByXPath("//*[contains(@class,'yso-title')]").getText();
+		  int comma = str.indexOf(',');
+		  String city= str.substring(0, comma);
+		  //Click on the weather city
+		  driver.findElementByXPath(getPath("Weather","City","weatherCity")).click();
+		  String destinationText=driver.findElementByXPath(getPath("Weather","City","currentCity")).getText();
+		  sleep(5000);
+		  //Verify the user is taken to weather.yahoo.com and the correct city is displayed
+		  Assert.assertTrue(city.equals(destinationText),"City added doesnt match with city added");
+	}
+	
+	/**
+	 * 
+	 * Test to verify degree change
+	 * 
+	 * 
+	**/
+	
+	@Test(groups={"Smoke"})
+	public void degreeCheck() throws InterruptedException
+	{
+		 
+		 sleep(5000);
+		 driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		 //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+		  String F = driver.findElement(By.xpath("//div[@class='current-weather']/div[2]")).getAttribute("class");
+		  System.out.println("Attribute: "+F);
+		  String C=driver.findElement(By.xpath("//div[@class='current-weather']/div[3]")).getAttribute("class");
+		  System.out.println("Attribute: "+C);
+		  
+		  if(C.contains("hide"))
+		  {   
+			  System.out.println("C is hide");
+			   //Change the degree to Farenheit
+			  driver.findElement(By.xpath("//div[@class='current-weather-unit temp-f ']/a")).click();
+			    
+		  }
+		  else if(F.contains("hide"))
+		  {   
+			  System.out.println("F is hide");
+			   //Change the degree to celsius
+			 
+			 driver.findElement(By.xpath("//div[@class='current-weather-unit temp-f ']//u")).click();
+             
+		  }  
+		
+	}
+	
+	/**
+	 * 
+	 * Test verify search city
+	 * 
+	**/
+	
+	@Test(groups={"Smokeabc"})
+	public void search() throws InterruptedException
+	{
+		
+		 sleep(5000);
+		 String place = "Hyderabad";
+		 driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		 //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+		  //Verify the search text field
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Textfield","search"))),"Search text field not found");
+		  //click on the search text field
+          driver.findElementByXPath(getPath("Weather","Textfield","search")).click();
+		  sleep(5000);
+		  //Enter a city in search text field
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys("");
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys(place);
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys(Keys.RETURN);
+		  sleep(5000);
+		  String searchText=driver.findElement(By.xpath(getPath("Weather","Search","query"))).getText();
+		  String searchText1[]=searchText.toString().split(",");
+		  //Click on the city in the search box
+		  driver.findElementByXPath(getPath("Weather","Search","query")).click();
+		  sleep(10000);
+		  driver.findElement(By.xpath(getPath("Weather","City","addCity"))).click();
+		  sleep(10000);
+		  String currentCity=driver.findElement(By.xpath(getPath("Weather","City","currentCity"))).getText();
+		  Assert.assertTrue(place.equals(currentCity.trim()));
+			  
+			
+	}
+	
+	 /**
+	  * 
+	  * Test to verify add city
+	  *
+	  */
+	
+	@Test(groups={"Smoke"})
+	public void addCity() throws InterruptedException
+	{
+		  String place = "San Jose";
+		  sleep(5000);
+		  driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		  //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+	      //Verify the search text field
+	      Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Textfield","search"))),"Search text field not found");
+	      //click on the search text field
+          driver.findElementByXPath(getPath("Weather","Textfield","search")).click();
+		  sleep(5000);
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys("");
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys(place);
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys(Keys.RETURN);
+		  sleep(5000);
+		  String searchText=driver.findElement(By.xpath(getPath("Weather","Search","query"))).getText();
+		  String searchText1[]=searchText.toString().split(",");
+		  //Click on the go button
+		  driver.findElementByXPath(getPath("Weather","Search","query")).click();
+		  sleep(5000);
+		  driver.findElement(By.xpath(getPath("Weather","City","addCity"))).click();
+		  sleep(5000);
+		  String currentCity=driver.findElement(By.xpath(getPath("Weather","City","currentCity"))).getText();
+		  Assert.assertTrue(place.equals(currentCity.trim()));
+		  driver.findElementByXPath(getPath("Weather","DropDown","cityDropDown")).click();
+		  String citylist= getPath("Weather","City","cityList");
+		  List<WebElement> elements = driver.findElementsByXPath(citylist);
+		  for(int i=0;i<elements.size();i++)
+	       {
+			  if(elements.get(i).getText().equals(place))
+	            {
+			  
+			Assert.assertTrue(elements.contains(place));
+		  }
+	       }
+				  
+		  
+	
+	}
+	
+    /**
+     * 
+     * Test to verify remove city
+     * 
+     */
+	
+	
+	//@Test(groups={"Smoke1","Regression"})
+	public void removeCity() throws InterruptedException
+	{
+         String place="Austin";
+		 sleep(5000);
+		 driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		 //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+	   	 //Verify the search text field
+	     Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Textfield","search"))),"Search text field not present");
+	     //click on the search text field
+         driver.findElementByXPath(getPath("Weather","Textfield","search")).click();
+		 sleep(5000);
+		 //Enter a city in search text field
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys("");
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys(place);
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys(Keys.RETURN);
+		  sleep(5000);
+		  String searchText=driver.findElement(By.xpath(getPath("Weather","Search","query"))).getText();
+		  String searchText1[]=searchText.toString().split(",");
+		  //Click on the go button
+		  driver.findElementByXPath(getPath("Weather","Search","query")).click();
+		  sleep(5000);
+		  driver.findElement(By.xpath(getPath("Weather","City","addCity"))).click();
+		  sleep(5000); 
+		  String currentCity=driver.findElement(By.xpath(getPath("Weather","City","currentCity"))).getText();
+		  Assert.assertTrue(place.equals(currentCity.trim()));
+		  driver.findElementByXPath(getPath("Weather","DropDown","cityDropDown")).click();
+		  String cityList =getPath("Weather","City","cityList");
+		  List<WebElement> elements = driver.findElementsByXPath(cityList);
+		  System.out.println(elements.size());
+		  for(int i=0;i<elements.size();i++)
+	       {
+       	    //Verify fossil text is present
+	            if(elements.get(i).getText().equals(place))
+	            {  
+	            	Actions action = new Actions(driver);
+	            	//Mouse over the city
+		    	    action.moveToElement(driver.findElement(By.xpath("//*[contains(@class,'temp-f') and contains(text(),'Austin')]")));
+		    	    action.perform();
+		    	    sleep(5000);
+		    	    driver.findElementByXPath("//*[contains(@title,'remove city')]").click();
+		    	    sleep(5000);
+	            }
+	            	
+	            }
+		  
+	}
+	
+	/**
+	 * 
+	 * Test to verify set default city
+	 * 
+	 */
+	
+//	@Test(groups={"Smoke","Regression"})
+	public void setDefault() throws InterruptedException
+	{
+	     
+		 sleep(5000);
+		 driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		 //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+		 //Verify the search text field
+		 Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Textfield","search"))),"Search text field not present");
+	     //click on the search text field
+         driver.findElementByXPath(getPath("Weather","Textfield","search")).click();
+		  sleep(5000);
+		  //Verify manage locations
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Select","manageLoc"))),"Manage locations not present");
+		  //Enter a city in search text field
+		  driver.findElement(By.xpath("//input[@id='weather_search_input' and @value='Enter city or zip code:']")).sendKeys("Hyderabad,AP");
+		  //Click on go button
+		  driver.findElement(By.xpath(getPath("Weather","Button","Go"))).click();
+		  String searchText=driver.findElement(By.xpath(getPath("Weather","Search","query"))).getText();
+		  //Wait for the searched city to appear
+		  waitForElementPresent(By.xpath(searchText),5000);
+		  //Click on the go button
+		  driver.findElementByXPath(getPath("Weather","Search","query")).click();
+		  sleep(5000);
+		  String currentCity=driver.findElement(By.xpath(getPath("Weather","City","currentCity"))).getText();
+		  //Verify the searched city matches the city added
+		  Assert.assertTrue(searchText.contains(currentCity),"Added city not present");
+		  driver.findElement(By.xpath(getPath("Weather","City","addCity"))).click();
+		  sleep(5000);
+		  Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","City","removeCity"))),"Remove city link not present");
+		  driver.findElement(By.xpath(getPath("Weather","City","setDefault"))).click();
+		  sleep(5000);
+		  Assert.assertFalse(isElementPresent(By.xpath(getPath("Weather","City","removeCity"))),"Remove city link present");
+	}
+		
+		
+	/**
+	 * 
+	 * Test to verify five days forecast area
+	 * 
+	 */
+	
+	@Test(groups={"Regression"})
+	public void fiveDaysForecast() throws InterruptedException
+	{
+
+		 sleep(5000);
+		 driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		 //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+		 //Verify the five day forecast area
+		 for(int i=1;i<=5;i++)
+		 {	 
+		     
+			 Assert.assertTrue(isElementPresent(By.xpath("//*[contains(@class,'yso-weather-forecast-tabs')]//div[contains(@id,'forecast-tab')]//ul/li[" + i + "]/ul")),"Five day forecast not present");
+			 Assert.assertTrue(isElementPresent(By.xpath("//*[contains(@class,'yso-weather-forecast-tabs')]//div[contains(@id,'forecast-tab')]//ul/li[" + i + "]/ul/li[1]")),"Five day forecast image not present");
+		 }	
+		 
+	}
+	
+	/**
+	 * 
+	 * Test to verify warning message
+	 * 
+	 */
+	
+	@Test(groups={"Regression"})
+	public void warningMessage() throws InterruptedException
+	{
+	 	 sleep(5000);
+		 driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		 //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+	     sleep(5000);
+		 //Verify the search text field
+	     Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Textfield","search"))),"Search text field not present");
+	     //click on the search text field
+	      driver.findElementByXPath(getPath("Weather","Textfield","search")).click();
+		  sleep(5000);
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys("");
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys("asfasf423132");
+		  driver.findElement(By.xpath("//input[@id='weather_search_input']")).sendKeys(Keys.RETURN);
+		  sleep(5000);
+	     String searchText=driver.findElement(By.xpath(getPath("Weather","Message","warning"))).getText();
+	     System.out.println(searchText);
+	     Assert.assertTrue(searchText.contains(data.get("Warning Message")),"Warning message not displayed"); 
+		
+	}
+	
+	/**
+	 * 
+	 * Test to verify tooltip
+	 * 
+	 */
+	@Test(groups={"Regression"})
+	public void tooltip() throws InterruptedException
+	{
+		
+		 sleep(5000);
+		 driver.get("http://us.data.toolbar.yahoo.com/bh/slideout?.intl=us&.pc=&.ver=2.4.7&modid=ytframe&bid=wea&debug=1&minified=1");
+		 //Wait for the Weather widget to appear
+		  waitForElementPresent(By.className("weather-search-widget"),5000);
+		 for(int i=1;i<=5;i++)
+		 {	 
+		     
+			 Assert.assertTrue(isElementPresent(By.xpath("//*[contains(@class,'yso-weather-forecast-tabs')]//div[contains(@id,'forecast-tab')]//ul/li[" + i + "]/ul")),"Forecast not present");
+			 Actions action = new Actions(driver);
+         	//Mouse over the five days forecast area
+	    	    action.moveToElement(driver.findElement(By.xpath("//*[contains(@class,'yso-weather-forecast-tabs')]//div[contains(@id,'forecast-tab')]//ul/li[" + i + "]/ul")));
+	    	    action.perform();
+	    	    sleep(5000); 
+	    	 Assert.assertTrue(isElementPresent(By.xpath(getPath("Weather","Tooltip","forecast"))),"Tooltip not present");
+		 }		
+	
+	    	  }
+		  	  
+	
+	
+	
+}

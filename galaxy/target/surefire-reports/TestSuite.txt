@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 65.987 sec <<< FAILURE!
+verifyMail(yahoo.toolbar.webDriver.apps.mail.Mail)  Time elapsed: 42.292 sec  <<< FAILURE!
+java.lang.AssertionError: Mail was not found expected:<true> but was:<false>
+	at org.testng.Assert.fail(Assert.java:89)
+	at org.testng.Assert.failNotEquals(Assert.java:489)
+	at org.testng.Assert.assertTrue(Assert.java:37)
+	at yahoo.toolbar.webDriver.apps.mail.Mail.verifyMail(Mail.java:796)
+
